@@ -94,14 +94,7 @@ action 直接指向 `home.jsp`，用户不管输什么直接访问后台 JSP。�
 根本没有upload目录
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ba4d7fc3-51da-4b29-ba2d-ec3898ad3c3d" />
 
-创建一个。这样是不行滴，它会生成到_war_explode下面，这个目录的内容由 IDEA 控制，你在运行时手动 / 代码创建的文件夹，**会被 IDEA 当成“非法变更”清掉**
-
-所以结果就是：
-
-- `mkdirs()` **执行了**
-- 但 **马上被 IDEA 删除**
-- 你肉眼看到 = “没创建成功”
-
+用代码生成
 ```
 //如果目录不存在，就创建
 			File dir = new File(realPath);
@@ -109,9 +102,20 @@ action 直接指向 `home.jsp`，用户不管输什么直接访问后台 JSP。�
 				dir.mkdirs();
 			}
 ```
+这样是不行滴，它会生成到_war_explode下面，这个目录的内容由 IDEA 控制，你在运行时手动 / 代码创建的文件夹，**会被 IDEA 当成“非法变更”清掉**
+
+所以结果就是：
+
+- `mkdirs()` **执行了**
+- 但 **马上被 IDEA 删除**
+- 你肉眼看到 = “没创建成功”
+
+
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7268e9c-46d9-48d7-920d-a52179906610" />
 
 这里手动在webcontent下面创建一个upload即可
+
 <img width="421" height="413" alt="image" src="https://github.com/user-attachments/assets/71aff32e-a132-4c89-bce7-94420b2ddae4" />
 
 ## （6）修复后，存在任意文件上传漏洞
