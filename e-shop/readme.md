@@ -1,4 +1,4 @@
-# 原项目说明
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/30437c20-b34a-48be-81dc-91a579c65d0c" /># 原项目说明
 - 没有使用框架，采用servlet和JDBC进行开发
 - sql文件夹里存放的是mysql建表，src文件夹里的是java代码，WEBCONTENT里的是页面。
 - 实现了用户的注册、邮件激活、登陆、支付、商品的添加搜索和显示等功能
@@ -42,8 +42,8 @@ apache-tomcat-9.0.113
 ## （2）注册有问题
 
 register.jsp有一行代码
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3b3ae71a-2cf0-4260-a365-24e4e1bc84ba" />
 
-![image-20251218112445997](D:\documentation\image\image-20251218112445997.png)
 
 这里如果没有写上method="post"，浏览器 **默认用 GET**就会直接提交。
 
@@ -60,12 +60,10 @@ http://localhost:8080/e-shop/user?method=userRegister
 ```
 
 ## （3）user.setUid设置有问题
-
-![image-20251218114059054](D:\documentation\image\image-20251218114059054.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d0743b34-1d20-4efc-bef5-e2a23df9a04e" />
 
 修改前：直接传入一个uuid，会导致uid长度过长，导致into不进去。
-
-![image-20251218114148412](D:\documentation\image\image-20251218114148412.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4d1704bf-5995-48ea-b167-04b2b1e25af8" />
 
 修改后：
 
@@ -82,22 +80,18 @@ user.setUid( UUID.randomUUID().toString().replace("-", ""));
 ```
 http://localhost:8080/e-shop/admin/index.jsp
 ```
-
-![image-20251218141449787](D:\documentation\image\image-20251218141449787.png)
-
-![image-20251218141503057](D:\documentation\image\image-20251218141503057.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9042c949-9938-40e8-b3c5-335eb6bd3da0" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/65124ed9-838a-46ce-b6c1-b098d6a97c04" />
 
 action 直接指向 `home.jsp`，用户不管输什么直接访问后台 JSP。根本没经过servlet。
-
-![image-20251218141603446](D:\documentation\image\image-20251218141603446.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0e4e9ec1-77f0-4579-9888-85c28fa26af5" />
 
 
 
 ## （5）上传文件，目录不存在异常
 
 根本没有upload目录
-
-![image-20251218144207524](D:\documentation\image\image-20251218144207524.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ba4d7fc3-51da-4b29-ba2d-ec3898ad3c3d" />
 
 创建一个。这样是不行滴，它会生成到_war_explode下面，这个目录的内容由 IDEA 控制，你在运行时手动 / 代码创建的文件夹，**会被 IDEA 当成“非法变更”清掉**
 
@@ -114,12 +108,10 @@ action 直接指向 `home.jsp`，用户不管输什么直接访问后台 JSP。�
 				dir.mkdirs();
 			}
 ```
-
-![image-20251218144552374](D:\documentation\image\image-20251218144552374.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7268e9c-46d9-48d7-920d-a52179906610" />
 
 这里手动在webcontent下面创建一个upload即可
-
-![image-20251218150830756](D:\documentation\image\image-20251218150830756.png)
+<img width="421" height="413" alt="image" src="https://github.com/user-attachments/assets/71aff32e-a132-4c89-bce7-94420b2ddae4" />
 
 ## （6）修复后，存在任意文件上传漏洞
 
@@ -139,12 +131,12 @@ action 直接指向 `home.jsp`，用户不管输什么直接访问后台 JSP。�
 %>
 
 ```
-
-![image-20251218154023517](D:\documentation\image\image-20251218154023517.png)
+<img width="738" height="359" alt="image" src="https://github.com/user-attachments/assets/6d9f6a99-5b36-4c9c-9930-10d8a5350a77" />
 
 漏洞点：
 
 不做任何校验，直接存放到upload下面。
 
-![image-20251218154102987](D:\documentation\image\image-20251218154102987.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bdbe121c-d679-487e-afa5-e802d3581be1" />
+
 
