@@ -1,8 +1,9 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/30437c20-b34a-48be-81dc-91a579c65d0c" /># 原项目说明
+# 原项目说明
 - 没有使用框架，采用servlet和JDBC进行开发
 - sql文件夹里存放的是mysql建表，src文件夹里的是java代码，WEBCONTENT里的是页面。
 - 实现了用户的注册、邮件激活、登陆、支付、商品的添加搜索和显示等功能
 
+原项目地址：https://github.com/ruanwenjun/JAVAWeb-Project
 # 项目页面如下：
 
 ![image](images/index.png)
